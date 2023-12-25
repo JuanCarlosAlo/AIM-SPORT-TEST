@@ -6,7 +6,7 @@ align-items: center;
 justify-content: center;
 height: 100%;
 width: 100%;
-background-image: url('../../../public/imgs/score-bg.png');
+background-image: url('imgs/score-bg.png');
 background-size: cover;
 background-position: bottom;
 `

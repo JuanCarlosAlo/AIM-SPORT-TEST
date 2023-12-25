@@ -7,7 +7,7 @@ align-items: center;
 justify-content: center;
 height: 100%;
 width: 100%;
-background-image: url('../../../public/imgs/vs-bg.png');
+background-image: url('/imgs/vs-bg.png');
 background-size: cover;
 background-position: bottom;
 `

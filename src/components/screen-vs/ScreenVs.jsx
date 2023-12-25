@@ -3,7 +3,7 @@ import Content from "../content/Content"
 import TeamIcon from "../team-icon/TeamIcon"
 import { StyledVs, StyledVsText } from "./styles"
 
-const ScreenVs =({setScreen,screem})=>{
+const ScreenVs =({setScreen,screen})=>{
     return  <StyledVs>
     <button onClick={()=> setScreen('score')}>Score</button>
     <Content>
