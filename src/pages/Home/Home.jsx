@@ -1,19 +1,37 @@
-import { useState } from "react"
-import { StyledHome } from "./styles"
+import { useState } from "react";
+import ScreenScore from "../../components/screen-score/ScreenScore";
+import ScreenVs from "../../components/screen-vs/ScreenVs";
+import { StyledHome } from "./styles";
 
-import ScreenVs from "../../components/screen-vs/ScreenVs"
-import ScreenScore from "../../components/screen-score/ScreenScore"
-
-const Home = ()=> {
-    const[screen,setScreen] = useState('vs')
-    return <StyledHome>
-        {screen === 'vs' ? (
-           <ScreenVs setScreen={setScreen} screen={screen}/>
-        ): (
-            <ScreenScore setScreen={setScreen} screen={screen}/>
+const Home = () => {
+    const [screen, setScreen] = useState('vs');
+    const [visible, setVisible] = useState(1); 
+   
+  const handleScreenChange = (newScreen) => {
+    setVisible(0); 
+    setTimeout(() => {
+      setScreen(newScreen);
+      setVisible(1); 
+    }, 800);
+  };
+    return (
+        <StyledHome>
+        {screen === 'vs' && (
+          <ScreenVs
+            setScreen={handleScreenChange}
+            screen={screen}
+            visible={visible}
+          />
         )}
-    
-    </StyledHome>
-}
-
-export default Home
+        { screen !== 'vs' && (
+          <ScreenScore
+            setScreen={handleScreenChange}
+            screen={screen}
+            visible={visible}
+          />
+        )}
+      </StyledHome>
+    );
+  };
+  
+  export default Home

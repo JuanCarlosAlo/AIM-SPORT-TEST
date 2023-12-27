@@ -4,12 +4,12 @@ import { formatTime } from '../utils/formatTime';
 import { calculateRemainingTime } from '../utils/calculateRemainingTime';
 
 export const useTimer = () => {
-  const { startDate, setStartDate, initialTime } = useContext(TimerContext);
-  const initialTimeInSeconds = 45 * 60;
-  const [remainingTime, setRemainingTime] = useState(initialTime ? calculateRemainingTime(initialTime) : initialTimeInSeconds);
+  const { startDate,  initialTime ,startTimer} = useContext(TimerContext);
+ 
+  const [remainingTime, setRemainingTime] = useState(calculateRemainingTime(initialTime));
 
   const updateRemainingTime = () => {
-    setRemainingTime(calculateRemainingTime(initialTime || startDate));
+    setRemainingTime(calculateRemainingTime(startDate));
   };
 
   useEffect(() => {
@@ -20,20 +20,14 @@ export const useTimer = () => {
     if (startDate) {
       interval = setInterval(updateRemainingTime, 1000);
 
-      if (calculateRemainingTime(initialTime || startDate) <= 0) {
+      if (calculateRemainingTime(startDate) <= 0) {
         clearInterval(interval);
       }
     }
 
     return () => clearInterval(interval);
   }, [startDate, initialTime]);
-
-  const startTimer = () => {
-    const newStartDate = new Date();
-    newStartDate.setMinutes(newStartDate.getMinutes() + 45);
-    setStartDate(newStartDate);
-  };
-
+  
   const formattedTime = formatTime(remainingTime);
 
   return {

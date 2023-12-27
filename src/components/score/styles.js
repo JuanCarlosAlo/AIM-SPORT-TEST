@@ -1,7 +1,8 @@
 import { styled } from "styled-components";
 import { COLORS } from "../../constants/colors";
+import { motion } from "framer-motion";
 
-const StyledScoreContainer = styled.div`
+const StyledScoreContainer = styled(motion.div)`
 display: flex;
 flex-direction: column;
 justify-content: flex-start;

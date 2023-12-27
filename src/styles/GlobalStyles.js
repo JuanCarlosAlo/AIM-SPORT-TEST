@@ -33,10 +33,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: PSVRegular;
     height: 100vh;
     width: 100vw;
-    background: url('/images/bg_cross.svg'), ${SECONDARY_COLORS.BACKGROUND_GRADIANT};
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat;
+ background-color:#000;
   
     color: ${COLORS.MAIN};
   }
